@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     # Messageを全て取得する。
-    @messages = Message.all
+    @messages = Message.order(:id).all
   end
 
   def create
