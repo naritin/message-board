@@ -1,5 +1,17 @@
 <div class="form-horizontal" role="form">
 <%= form_for(@message) do |f| %>
+  <% if @message.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @message.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
   <div class="form-group">
     <label class="col-sm-1 control-label">名前</label>
     <div class="col-sm-11">
